@@ -4,25 +4,11 @@ import java.util.Scanner;
 
 public class Dijkstra {
 
-    public int distance[] = new int[10];
-    public int cost[][] = {{0,10,999,999,5,999,999,999,999,999,999,999,999,999,999,999},
-                           {10,0,10,999,999,999,999,999,999,999,999,999,999,999,999,999},
-                           {999,10,0,10,999,999,999,999,999,999,999,999,999,999,999,999},
-                           {999,999,10,0,10,999,999,999,999,999,999,999,999,999,999,999},
-                           {5,999,999,10,0,10,999,999,999,5,999,999,999,999,999,999},
-                           {999,999,999,999,10,0,10,999,999,999,999,999,999,999,999,999},
-                           {999,999,999,999,999,10,0,10,999,999,999,999,999,999,999,999},
-                           {999,999,999,999,999,999,10,0,10,999,999,999,999,999,999,999},
-                           {999,999,999,999,999,999,999,10,0,10,999,999,999,999,999,999},
-                           {999,999,999,999,5,999,999,999,10,0,10,999,999,999,5,999},
-                           {999,999,999,999,999,999,999,999,999,10,0,10,999,999,999,999},
-                           {999,999,999,999,999,999,999,999,999,999,10,0,10,999,999,999},
-                           {999,999,999,999,999,999,999,999,999,999,999,10,0,10,999,999},
-                           {999,999,999,999,999,999,999,999,999,999,999,999,10,0,10,999},
-                           {999,999,999,999,5,999,999,999,999,999,999,999,999,10,0,5},
-                           {999,999,999,999,999,999,999,999,999,999,999,999,999,999,5,0}};
+    public int distance[] = new int[20];
+         public int cost[][]=new int[20][20];
 
     public void calc(int n, int s) {
+        
         int flag[] = new int[n + 1];
         int i, minpos = 1, k, c, minimum;
 
@@ -54,10 +40,10 @@ public class Dijkstra {
         int nodes, source, i, j;
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the Number of Nodes \n");
-        
+        nodes=in.nextInt();
         Dijkstra d = new Dijkstra();
-        nodes=d.cost.length;
-        /*
+        
+        
         System.out.println("Enter the Cost Matrix Weights: \n");
         for (i = 1; i <= nodes; i++) {
             for (j = 1; j <= nodes; j++) {
@@ -67,23 +53,21 @@ public class Dijkstra {
                 }
             }
         }
-        */
-        for (i = 0; i < nodes; i++) {
-            for (j = 0; j <nodes; j++) {
-                System.out.print(d.cost[i][j]+" ");
-            }
-            System.out.println("\n");
-        }
+        
+
         System.out.println("Enter the Source Vertex :\n");
         source = in.nextInt();
 
         d.calc(nodes, source);
         System.out.println("The Shortest Path from Source \t" + source + "\t to all other vertices are : \n");
-        for (i = 1; i <= nodes; i++) {
+        int n=in.nextInt();
+        System.out.println("source :" + source + "\t destination :" + i + "\t MinCost is :" + d.distance[n] + "\t");
+        /*for (i = 1; i <= nodes; i++) {
             if (i != source) {
                 System.out.println("source :" + source + "\t destination :" + i + "\t MinCost is :" + d.distance[i] + "\t");
             }
-        }
+        }*/
+        
     }
 
 }
